@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import generate, export, library
+import uvicorn  # add this
 
 app = FastAPI(title="PromptData API")
 
@@ -18,3 +19,6 @@ app.include_router(library.router, prefix="/api")
 @app.get("/")
 def root():
     return {"message": "PromptData API is running"}
+
+if __name__ == "__main__":                          # add this
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)

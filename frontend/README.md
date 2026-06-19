@@ -5,18 +5,13 @@ AI-powered synthetic dataset generator — type a prompt in plain English and do
 
 🔗 **Live:** [promptdata.vercel.app](https://promptdata.vercel.app)
 
----
 
 ## Features
-- Natural language prompts → instant dataset generation
-- Quick templates — Students, Hospital, Stocks, E-commerce, HR, Cricket
-- Regional locales — All India, North, South, Maharashtra, Gujarat, East
+- Natural language prompt → instant dataset
+- Quick templates & regional locales (All India, North, South, Maharashtra, Gujarat, East)
 - Export as Excel, JSON, CSV, SQL, XML
-- Data preview with sort, search & pagination
-- Auto numeric stats (min, max, avg)
-- Generation history
+- Preview with sort, search, stats & history
 
----
 
 ## Tech Stack
 | Layer | Tech |
@@ -26,7 +21,6 @@ AI-powered synthetic dataset generator — type a prompt in plain English and do
 | AI | Groq API |
 | Data | Pandas, NumPy, Faker |
 
----
 
 ## Local Setup
 
@@ -40,7 +34,8 @@ python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 # Add GROQ_API_KEY to .env
-uvicorn main:app --reload
+uvicorn main:app --reload        # local only
+# On Render, start command is: uvicorn main:app --host 0.0.0.0 --port $PORT
 
 # Frontend
 cd frontend
@@ -49,7 +44,6 @@ npm install
 npm run dev
 ```
 
----
 
 ## API
 | Method | Endpoint | Description |
@@ -59,12 +53,10 @@ npm run dev
 | POST | `/api/export` | Export dataset |
 | GET | `/api/library` | Saved datasets |
 
----
 
 ## Deployment
 - **Backend** → [Render](https://render.com) (Root: `backend/`)
 - **Frontend** → [Vercel](https://vercel.com) (Root: `frontend/`)
 
----
 
 MIT License
